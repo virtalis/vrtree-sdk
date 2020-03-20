@@ -257,13 +257,27 @@ VR_API (HNode, VRGetNext, (HNode node));
 /// @return next sibling of requested type, or NULL if no siblings/no siblings of this type
 VR_API (HNode, VRGetNextOfType, (HNode node, const char* nextMetaNode));
 
+/// Gets the previous sibling of a node
+/// @return sibling or NULL if no siblings
+VR_API(HNode, VRGetPrev, (HNode node));
+
+/// Gets the previous sibling of a specific type
+/// @param prevMetaNode the type of sibling to get
+/// @return previous sibling of requested type, or NULL if no siblings/no siblings of this type
+VR_API(HNode, VRGetPrevOfType, (HNode node, const char* prevMetaNode));
+
 /// Gets the parent of a node
 /// @return parent node or NULL if no parent (root node)
 VR_API (HNode, VRGetParent, (HNode node));
 
-/// Sets the parent of a node
+/// Sets the parent of a node, adding it as the last child
 /// @return 0 on success
 VR_API (int, VRSetParent, (HNode node, HNode parent));
+
+/// Sets the parent of a node, specifying a sibling to insert after
+/// @param afterSibling the node after which to insert this node. If null, inserts as first child of parent
+/// @return 0 on success
+VR_API(int, VRSetParentEx, (HNode node, HNode parent, HNode afterSibling));
 
 /// Gets the metanode of a node
 /// @return metanode or NULL if no metanode
