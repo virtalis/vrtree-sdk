@@ -1,4 +1,4 @@
-# Visionary Render 2020.1 VRTree SDK
+# Visionary Render 2020.2 VRTree SDK
 This is the C/C++ library and header files used for interacting with the Visionary Render C APIs.
 
 It is also included in the Visionary Render installation directory.
