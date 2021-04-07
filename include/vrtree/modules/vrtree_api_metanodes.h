@@ -682,17 +682,17 @@ VR_API (int, VRAddPropertyArrayDouble, (HMeta metaNode, const char* propertyName
 /// @param defaultValue default value to use in each element on new nodes
 VR_API (int, VRAddPropertyArrayWorldFloat, (HMeta metaNode, const char* propertyName, int num, double defaultValue));
 
+/// Adds a boolean vector property to a metanode (resizable container)
+/// @param metaNode handle to the metanode to modify
+/// @param propertyName name of the property to add
+/// @return 0 if the property is added successfully
+VR_API (int, VRAddPropertyVectorBool, (HMeta metaNode, const char* propertyName));
+
 /// Adds a character vector property to a metanode (resizable container)
 /// @param metaNode handle to the metanode to modify
 /// @param propertyName name of the property to add
 /// @return 0 if the property is added successfully
 VR_API (int, VRAddPropertyVectorChar, (HMeta metaNode, const char* propertyName));
-
-/// Adds a string vector property to a metanode (resizable container)
-/// @param metaNode handle to the metanode to modify
-/// @param propertyName name of the property to add
-/// @return 0 if the property is added successfully
-VR_API(int, VRAddPropertyVectorString, (HMeta metaNode, const char* propertyName));
 
 /// Adds an integer vector property to a metanode (resizable container)
 /// @param metaNode handle to the metanode to modify
@@ -706,11 +706,23 @@ VR_API (int, VRAddPropertyVectorInt, (HMeta metaNode, const char* propertyName))
 /// @return 0 if the property is added successfully
 VR_API (int, VRAddPropertyVectorFloat, (HMeta metaNode, const char* propertyName));
 
+/// Adds a double vector property to a metanode (resizable container)
+/// @param metaNode handle to the metanode to modify
+/// @param propertyName name of the property to add
+/// @return 0 if the property is added successfully
+VR_API (int, VRAddPropertyVectorDouble, (HMeta metaNode, const char* propertyName));
+
 /// Adds a world float vector property to a metanode (resizable container)
 /// @param metaNode handle to the metanode to modify
 /// @param propertyName name of the property to add
 /// @return 0 if the property is added successfully
 VR_API (int, VRAddPropertyVectorWorldFloat, (HMeta metaNode, const char* propertyName));
+
+/// Adds a string vector property to a metanode (resizable container)
+/// @param metaNode handle to the metanode to modify
+/// @param propertyName name of the property to add
+/// @return 0 if the property is added successfully
+VR_API(int, VRAddPropertyVectorString, (HMeta metaNode, const char* propertyName));
 
 /// Sets a property as read-only (provides a hint to node property user interface to make the editor read only)
 /// @param metaNode handle to the metanode to modify

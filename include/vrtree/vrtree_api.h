@@ -38,3 +38,4 @@ SOFTWARE.
 #include "modules/vrtree_api_migrations.h"
 #include "modules/vrtree_api_ffi.h"
 #include "modules/vrtree_api_utilities.h"
+#include "modules/vrtree_api_settings.h"

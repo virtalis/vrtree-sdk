@@ -151,6 +151,11 @@ typedef void(*NodeParentChangedFunc)(HNode node, HNode newParent, HNode oldParen
 /// @param userData arbitrary user data that was provided when registering the callback
 typedef void(*UpdateFunc)(double deltaTime, void* userData);
 
+/// Signature of a function that is called when a setting is changed
+/// @param path the path to the setting from the root of the settings hierarchy
+/// @param userData arbitrary user data that was provided when registering the callback
+typedef void(*SettingChangedFunc)(const char* path, void* userData);
+
 /// Signature of a function that is exposed to the Lua environment
 typedef HFFIVar(*FFIFunc)(int argc, HFFIVar* argv, void* userData);
 
