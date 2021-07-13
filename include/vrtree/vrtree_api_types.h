@@ -159,6 +159,38 @@ typedef void(*SettingChangedFunc)(const char* path, void* userData);
 /// Signature of a function that is exposed to the Lua environment
 typedef HFFIVar(*FFIFunc)(int argc, HFFIVar* argv, void* userData);
 
+/// Signature of a function that is called when a node state is changed (for event observers)
+/// @param node node which state is changed
+/// @param user user node copied from the __User LUA register
+/// @param userData arbitrary user data that was provided when registering the callback
+typedef void(*EventNodeFunc)(HNode node, HNode user, void* userData);
+
+/// Signature of a function that is called when two nodes interact (for event observers)
+/// @param node node which state is changed
+/// @param other interacting node copied from the __Other LUA register
+/// @param user user node copied from the __User LUA register
+/// @param userData arbitrary user data that was provided when registering the callback
+typedef void(*EventTwoNodesUserFunc)(HNode node, HNode other, HNode user, void* userData);
+
+/// Signature of a function that is called when two nodes interact (for event observers)
+/// @param node node which state is changed
+/// @param other interacting node copied from the __Other LUA register
+/// @param userData arbitrary user data that was provided when registering the callback
+typedef void(*EventTwoNodesFunc)(HNode node, HNode other, void* userData);
+
+/// Signature of a function that is called when a key state is changed (for event observers)
+/// @param code key code
+/// @param code key state
+/// @param user user node copied from the __User LUA register
+/// @param userData arbitrary user data that was provided when registering the callback
+typedef void(*EventKeyFunc)(int code, int state, HNode user, void* userData);
+
+/// Signature of a function that is called when a key code is changed (for event observers)
+/// @param code key code
+/// @param user user node copied from the __User LUA register
+/// @param userData arbitrary user data that was provided when registering the callback
+typedef void(*EventGestureFunc)(int code, HNode user, void* userData);
+
 /// @}
 
 /// @defgroup api_flags Flags

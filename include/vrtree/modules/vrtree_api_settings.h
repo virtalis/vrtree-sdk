@@ -98,7 +98,7 @@ VR_API (int, VRSetSettingCaption, (const char* path, const char* caption));
 /// Assigns a range to a numeric setting
 /// @param path the path from the root of the settings hierarchy
 /// @param minValue the minimum allowable value
-/// @param maxValue the maxumum allowable value
+/// @param maxValue the maximum allowable value
 VR_API (int, VRSetSettingRange, (const char* path, double minValue, double maxValue));
 
 /// Assigns a step size to a numeric setting

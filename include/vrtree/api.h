@@ -60,7 +60,7 @@ SOFTWARE.
 #ifndef VRTREE_API_VERSIONS
 #define VRTREE_API_VERSIONS
 const int VRTREE_API_VERSION_MAJOR =  1; //incremented if backward compatibility is broken
-const int VRTREE_API_VERSION_MINOR = 11; //incremented if new exports are added
+const int VRTREE_API_VERSION_MINOR = 12; //incremented if new exports are added
 #endif
 
 #include <stdint.h>

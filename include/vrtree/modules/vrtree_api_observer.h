@@ -166,4 +166,200 @@ VR_API (void, VRRemoveCallbackNodeParentChangedEx, (const char* metaName, NodePa
 /// @param userData arbitrary data to passed to the callback
 VR_API (void, VRRemoveCallbackUpdateEx, (UpdateFunc callback, void* userData));
 
+
+
+/// Event callbacks. Some already exist :
+/// VRAddCallbackUpdate for Event::TimeStep
+/// VRAddCallbackNodeCreation for Event::Create
+/// VRAddCallbackNodeDestruction for Event::Delete
+/// VRAddCallbackNodeRenamed for Event::Rename
+/// 
+/// View select and View deselect are added despite they are missing in the Event list in vrscript.hpp, 57
+
+/// Add callback for Activate event of a node and the other node deactivated
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackActivate, (HNode node, EventTwoNodesUserFunc callback, void* userData, int flags));
+
+/// Remove callback for Activate event of a node and the other node deactivated
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackActivate, (HNode node, EventTwoNodesUserFunc callback));
+
+/// Add Touch callback (assembly has collided)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackTouch, (HNode node, EventTwoNodesFunc callback, void* userData, int flags));
+
+/// Remove Touch callback (assembly has collided)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackTouch, (HNode node, EventTwoNodesFunc callback));
+
+/// Add Break callback (assembly has ceased colliding)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackBreak, (HNode node, EventTwoNodesFunc callback, void* userData, int flags));
+
+/// Remove Break callback (assembly has ceased colliding)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackBreak, (HNode node, EventTwoNodesFunc callback));
+
+/// Add Key press callback (key was pressed)
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackKeyPress, (EventKeyFunc callback, void* userData, int flags));
+
+/// Remove Key press callback (key was pressed)
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackKeyPress, (EventKeyFunc callback));
+
+/// Add Key release callback (key was released)
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackKeyRelease, (EventKeyFunc callback, void* userData, int flags));
+
+/// Remove Key release callback (key was released)
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackKeyRelease, (EventKeyFunc callback));
+
+/// Add Pose entered callback (a hand switched to a pose)
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackPoseEntered, (EventKeyFunc callback, void* userData, int flags));
+
+/// Remove Pose entered callback (a hand switched to a pose)
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackPoseEntered, (EventKeyFunc callback));
+
+/// Add Pose left callback (a hand left a pose)
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackPoseLeft, (EventKeyFunc callback, void* userData, int flags));
+
+/// Remove Pose left callback (a hand left a pose)
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackPoseLeft, (EventKeyFunc callback));
+
+/// Add Gesture callback (a hand activated a gesture)
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackGesture, (EventGestureFunc callback, void* userData, int flags));
+
+/// Remove Gesture callback (a hand activated a gesture)
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackGesture, (EventGestureFunc callback));
+
+/// Add Click callback (button or similar node clicked)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackClick, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Click callback (button or similar node clicked)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackClick, (HNode node, EventNodeFunc callback));
+
+/// Add Double click callback (button or similar node double-clicked)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackDoubleClick, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Double click callback (button or similar node double-clicked)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackDoubleClick, (HNode node, EventNodeFunc callback));
+
+/// Add Enter callback (a generic state was entered)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackEnter, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Enter callback (a generic state was entered)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackEnter, (HNode node, EventNodeFunc callback));
+
+/// Add Leave callback (a generic state was left)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackLeave, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Leave callback (a generic state was left)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackLeave, (HNode node, EventNodeFunc callback));
+
+/// Add Move callback. The ‘move’ event applies to sliders, scrollbars and markers in the GUI 
+/// system in addition to assemblies. It’s not the same as observing the transform property 
+/// because the move event is also triggered on all the descendant assemblies of the object 
+/// that has moved.
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackMove, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Move callback (the transform property has changed)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackMove, (HNode node, EventNodeFunc callback));
+
+/// Add Press callback (button or similar node pressed)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackPress, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Press callback (button or similar node pressed)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackPress, (HNode node, EventNodeFunc callback));
+
+/// Add Release callback (button or similar node released)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackRelease, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Release callback (button or similar node released)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackRelease, (HNode node, EventNodeFunc callback));
+
+/// Add Toggle callback (button or similar node toggled)
+/// @param node node handle
+/// @param callback the function to call
+/// @param userData arbitrary data to pass to the callback
+/// @param flags additional flags for future use (must be zero)
+VR_API (void, VRAddCallbackToggle, (HNode node, EventNodeFunc callback, void* userData, int flags));
+
+/// Remove Toggle callback (button or similar node toggled)
+/// @param node node handle
+/// @param callback the previously added function to remove
+VR_API (void, VRRemoveCallbackToggle, (HNode node, EventNodeFunc callback));
+
+
 /// @}
